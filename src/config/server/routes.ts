@@ -1,7 +1,7 @@
 import { Express } from 'express';
 
-import { sampleRoutes } from '../routes/sample.routes';
+import { productRoutes } from '../../routes/product.routes';
 
 export default (server: Express) : void => {
- server.use("/", sampleRoutes);
+ server.use("/", productRoutes);
 };

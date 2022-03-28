@@ -1,7 +1,8 @@
-import EntityModel from '../config/database/models/entity.models';
-import Entity from '../entities/entity';
+import EntityModel from '../config/database/models/product.models';
+import Product from '../domain/entities/product';
 import { connect } from 'mongoose';
-import IRepositoryAdapter from './contracts/irepository.adapter';
+import IRepositoryAdapter from './contracts/iproduct.repository.adapter';
+import { Either, error } from '../shared/either';
 
 require('dotenv').config();
 
@@ -15,8 +16,9 @@ export default class MongooseAdapter implements IRepositoryAdapter {
     };
   };
 
-  async save(entity: Entity): Promise<Entity> {
-   const response = await new EntityModel(entity).save();
+  async save(product: Product): Promise<Either<string, Product>> {
+   const response = await new EntityModel(product).save();
+   if (response.error) return error(response);
    return response;
   };
 };

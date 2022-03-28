@@ -1,41 +1,41 @@
-export type Either<L, A> = Left<L, A> | Right<L, A>;
+export type Either<E, S> = Error<E, S> | Success<E, S>;
 
-export class Left<L, A> {
-  readonly value: L;
+export class Error<E, S> {
+  readonly value: E;
 
-  constructor (value: L) {
+  constructor (value: E) {
     this.value = value;
   };
 
-  isLeft (): this is Left<L, A> {
+  isError (): this is Error<E, S> {
     return true;
   };
 
-  isRight (): this is Right<L, A> {
+  isSuccess (): this is Success<E, S> {
     return false;
   };
 };
 
-export class Right<L, A> {
-  readonly value: A;
+export class Success<E, S> {
+  readonly value: S;
 
-  constructor (value: A) {
+  constructor (value: S) {
     this.value = value;
   };
 
-  isLeft (): this is Left<L, A> {
+  isError (): this is Error<E, S> {
     return false;
   };
 
-  isRight (): this is Right<L, A> {
+  isSuccess (): this is Success<E, S> {
     return true;
   };
 };
 
-export const left = <L, A>(l: L): Either<L, A> => {
-  return new Left<L, A>(l);
+export const error = <E, S>(l: E): Either<E, S> => {
+  return new Error<E, S>(l);
 };
 
-export const right = <L, A>(a: A): Either<L, A> => {
-  return new Right<L, A>(a);
+export const success = <E, S>(a: S): Either<E, S> => {
+  return new Success<E, S>(a);
 };

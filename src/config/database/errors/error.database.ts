@@ -1,11 +1,11 @@
 import IErrorMessage from '../../../adapters/contracts/ierror.message';
 
-export default class MissingParamError implements IErrorMessage {
+export default class DatabaseError implements IErrorMessage {
 
  message: string;
 
- constructor (paramName: string) {
-   this.message = `Missing param: ${paramName}`;
+ constructor (error: string) {
+   this.message = `Database Error: ${error}`;
  };
 
  getMessage (): string {
