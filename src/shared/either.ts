@@ -32,10 +32,10 @@ export class Success<E, S> {
   };
 };
 
-export const error = <E, S>(l: E): Either<E, S> => {
-  return new Error<E, S>(l);
+export const error = <E, S>(e: E): Either<E, S> => {
+  return new Error<E, S>(e);
 };
 
-export const success = <E, S>(a: S): Either<E, S> => {
-  return new Success<E, S>(a);
+export const success = <E, S>(s: S): Either<E, S> => {
+  return new Success<E, S>(s);
 };
