@@ -1,5 +1,5 @@
 import { inject, injectable } from "tsyringe";
-import IProductRepositoryAdapter from '../../../../adapters/contracts/iproduct.repository.adapter';
+import IProductRepositoryAdapter from '../../../../ports/driven/contracts/iproduct.repository.adapter';
 import { Either, error, success } from "../../../../shared/either";
 import Product from "../../../entities/product";
 

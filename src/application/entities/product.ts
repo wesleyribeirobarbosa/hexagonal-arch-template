@@ -1,4 +1,3 @@
-import MissingParamError from './errors/error.missing.params';
 import { Either, error, success } from '../../shared/either';
 
 export default class Product {
@@ -12,8 +11,8 @@ export default class Product {
   }
 
   static create (name: string, price: string): Either<string, Product> {
-    if (!name) return error(new MissingParamError('name').getMessage());
-    if (!price) return error(new MissingParamError('price').getMessage());
+    if (!name) return error('Error: name missing!');
+    if (!price) return error('Error: price missing!');
     return success(new Product(name, price));
   }
 }
