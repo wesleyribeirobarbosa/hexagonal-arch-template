@@ -1,7 +1,7 @@
 import { Express } from 'express';
 
-import { productRoutes } from '../../ports/driver/routes/product.routes';
+import { entityARoutes } from '../../ports/driver/routes/entityA.routes';
 
-export default (server: Express) : void => {
- server.use("/", productRoutes);
+export default (server: Express): void => {
+  server.use('/', entityARoutes);
 };

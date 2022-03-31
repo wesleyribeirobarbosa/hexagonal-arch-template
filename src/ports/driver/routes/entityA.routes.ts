@@ -1,8 +1,8 @@
 import { Router } from 'express';
 import EntityAController from '../../../adapters/driver/entityA.controller';
 
-const productRoutes = Router();
+const entityARoutes = Router();
 
-productRoutes.get('/entityA', new EntityAController().handleSaveEntityA);
+entityARoutes.post('/entityA', new EntityAController().handleSaveEntityA);
 
-export { productRoutes };
+export { entityARoutes };

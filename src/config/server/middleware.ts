@@ -1,10 +1,4 @@
-import {
-  Express,
-  json,
-  Request,
-  Response,
-  NextFunction,
- } from 'express';
+import { Express, json, Request, Response, NextFunction } from 'express';
 
 const bodyParser = json();
 

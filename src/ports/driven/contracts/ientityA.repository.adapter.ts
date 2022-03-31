@@ -4,5 +4,5 @@ import { Either } from '../../../shared/either';
 
 export default interface IEntityARepositoryAdapter {
   dbconnect(): Promise<void>;
-  save(entityA: EntityA): Promise<Either<InvalidParamAError, EntityA>>;
-};
+  save(entityA: EntityA): Promise<Either<InvalidParamAError | Error, EntityA>>;
+}
