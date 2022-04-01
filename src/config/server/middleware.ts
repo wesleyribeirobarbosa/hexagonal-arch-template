@@ -1,4 +1,6 @@
 import { Express, json, Request, Response, NextFunction } from 'express';
+import swaggerUi from 'swagger-ui-express';
+import swaggerFile from './swagger.json';
 
 const bodyParser = json();
 
@@ -15,6 +17,7 @@ const contentType = (req: Request, res: Response, next: NextFunction): void => {
 };
 
 export default (server: Express): void => {
+  server.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
   server.use(bodyParser);
   server.use(cors);
   server.use(contentType);

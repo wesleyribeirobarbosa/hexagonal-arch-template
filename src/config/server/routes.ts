@@ -1,7 +1,7 @@
 import { Express } from 'express';
 
-import { entityARoutes } from '../../ports/driver/routes/entityA.routes';
+import { userRoutes } from '../../routes/user.routes';
 
 export default (server: Express): void => {
-  server.use('/', entityARoutes);
+  server.use('/', userRoutes);
 };

@@ -22,17 +22,17 @@ services:
         - MONGO_INITDB_ROOT_USERNAME=admin
         - MONGO_INITDB_ROOT_PASSWORD=admin
 
-  ms-node-hexagonal-template:
+  node-ms-service:
     build: .
-    image:  ms-node-hexagonal-template
+    image:  node-ms-service
     ports:
-        - 3000:3000
-    container_name: ms-node-hexagonal-template
+        - 3001:3001
+    container_name: node-ms-service
     restart: always
     depends_on:
         - mongo
     environment:
-        PORT: 3000
+        PORT: 3001
         MONGO_USER: admin
         MONGO_PASS: admin
         MONGO_HOST: mongo
