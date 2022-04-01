@@ -1,6 +1,6 @@
 export default class InvalidPropError extends Error {
-  constructor(prop: any) {
-    super(`The param "${prop}" is invalid.`);
+  constructor(prop: string) {
+    super(`The param '${prop}' is invalid.`);
     this.name = 'InvalidPropError';
   }
 }

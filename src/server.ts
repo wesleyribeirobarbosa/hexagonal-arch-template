@@ -1,10 +1,8 @@
-import 'reflect-metadata';
-import './shared/container/index';
+import dotenv from 'dotenv';
 
 import httpServer from './config/server/httpServer';
 import MongooseAdapter from './adapters/mongoose.adapter';
 
-import dotenv from 'dotenv';
 dotenv.config();
 
 new MongooseAdapter()

@@ -17,6 +17,6 @@ export default class CreateUserUseCase {
       return right(dbResponse);
     } catch (e) {
       return left(new DatabaseError(e).message);
-    };
+    }
   }
 }

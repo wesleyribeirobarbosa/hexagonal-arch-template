@@ -4,4 +4,4 @@ const httpStatusCode = {
   DATABASE_ERROR: 500,
 };
 
-export { httpStatusCode };
+export default httpStatusCode;

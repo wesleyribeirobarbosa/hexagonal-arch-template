@@ -20,12 +20,14 @@ export default class User {
     email: string,
     age: number,
   ): Either<string, User> {
-    if (!name) return left(new InvalidPropError(name).message);
-    else if (!email) return left(new InvalidPropError(email).message);
-    else if (!age) return left(new InvalidPropError(age).message);
+    if (!name) return left(new InvalidPropError('name').message);
+    if (!email) return left(new InvalidPropError('email').message);
+    if (!age) return left(new InvalidPropError('age').message);
 
     const id = Math.floor(Math.random() * 10);
 
     return right(new User(id, name, email, age));
   }
+
+  // TODO - Implement getters/setters
 }
