@@ -9,24 +9,18 @@ import IUserRepository from '../../../../adapters/contracts/iuser.repository';
 import DatabaseTestAdapter from '../../../../adapters/database.test.adapter';
 
 describe('Testing user creation', () => {
-
   let createUserUseCase = null;
 
   beforeAll(() => {
     container.registerSingleton<IUserRepository>(
-     'UserRepository',
-     DatabaseTestAdapter,
-   );
+      'UserRepository',
+      DatabaseTestAdapter,
+    );
     createUserUseCase = container.resolve(CreateUserUseCase);
   });
 
   test('Valid User', async () => {
-    const user = new User(
-      1,
-      'teste',
-      'teste@teste.com',
-      1,
-    );
+    const user = new User('teste', 'teste@teste.com', 1);
     const userCreationResponse: Either<string, User> =
       await createUserUseCase.createUser(user);
     expect(userCreationResponse.isRight()).toBe(true);
@@ -34,16 +28,10 @@ describe('Testing user creation', () => {
   });
 
   test('Database Error', async () => {
-    const user = new User(
-      999,
-      'teste',
-      'teste@teste.com',
-      1,
-    );
+    const user = new User('error.test', 'teste@teste.com', 1);
     const userCreationResponse: Either<string, User> =
       await createUserUseCase.createUser(user);
     expect(userCreationResponse.isLeft()).toBe(true);
-    expect(userCreationResponse.value).toMatch(/(Database Error.)/i)
+    expect(userCreationResponse.value).toMatch(/(Database Error.)/i);
   });
-
 });

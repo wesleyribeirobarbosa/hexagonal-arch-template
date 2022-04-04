@@ -2,13 +2,11 @@ import { Either, left, right } from '../../../../shared/either';
 import InvalidPropError from './errors/invalidProp.error';
 
 export default class User {
-  private readonly id: number;
   private readonly name: string;
   private readonly email: string;
   private readonly age: number;
 
-  constructor(id: number, name: string, email: string, age: number) {
-    this.id = id;
+  constructor(name: string, email: string, age: number) {
     this.name = name;
     this.email = email;
     this.age = age;
@@ -24,9 +22,7 @@ export default class User {
     if (!email) return left(new InvalidPropError('email').message);
     if (!age) return left(new InvalidPropError('age').message);
 
-    const id = Math.floor(Math.random() * 10);
-
-    return right(new User(id, name, email, age));
+    return right(new User(name, email, age));
   }
 
   // TODO - Implement getters/setters

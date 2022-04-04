@@ -20,7 +20,4 @@ export default class MongooseAdapter implements IUserRepository {
     return UserModel.create(user);
   }
 
-  find(id) {
-    return UserModel.findById({ id });
-  }
 }
