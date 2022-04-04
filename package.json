@@ -1,5 +1,5 @@
 {
-  "name": "james.backend.microservice.node",
+  "name": "hexagonal.arch.template",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
