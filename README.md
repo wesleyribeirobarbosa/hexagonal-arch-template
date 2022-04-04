@@ -1,1 +1,1 @@
-# james.backend.microservice.node
+# hexagonal.arch.template
