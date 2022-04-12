@@ -12,6 +12,7 @@ export default class MongooseAdapter implements IUserRepository {
         `mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@${process.env.MONGO_HOST}:${process.env.MONGO_PORT}/${process.env.MONGO_DB_NAME}?authSource=admin`,
       );
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.log('ERROR_MONGO_CONNECTION', error);
     }
   }
@@ -19,5 +20,4 @@ export default class MongooseAdapter implements IUserRepository {
   save(user) {
     return UserModel.create(user);
   }
-
 }

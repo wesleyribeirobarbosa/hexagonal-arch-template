@@ -68,3 +68,21 @@ The consumption of resources external to the hexagon is done in this layer and f
 The domain contains the system entities and their individual behaviors. The entities were implemented following the **Rich Domain Model**.
 
 =======================================================
+
+**Running**:
+
+To run the application locally, the MongoDB database must be running. If so, just run the command:
+
+- npm run dev
+
+To run the application as a container, just run the command:
+
+- docker-compose up
+
+The application API will be available at <a href="http://localhost:3001">localhost:3001</a>.
+
+Mongo Express web interface will be available at <a href="http://localhost:8081">localhost:8081</a>..
+
+Swagger API Docs will be available at <a href="http://localhost:3001/api-docs/">localhost:3001/api-docs/</a>.
+
+=======================================================

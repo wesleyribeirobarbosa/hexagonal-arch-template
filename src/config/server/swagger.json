@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "version": "1.0.0",
-    "title": "RUPTURE API",
+    "title": "HEXAGONAL ARCHITECTURE EXAMPLE API",
     "description": ""
   },
   "host": "localhost:3000",
@@ -11,24 +11,24 @@
     "http"
   ],
   "paths": {
-    "/rupture/shopper/suggestion": {
-      "get": {
-        "description": "Search for product suggestions similar to a missing product",
+    "/helloworld": {
+      "post": {
+        "description": "Insert a message into database",
         "parameters": [ 
            {
-             "name": "plu",
-             "in": "query",
-             "description": "Product ID",
+             "name": "message",
+             "in": "body",
+             "description": "A example message",
              "required": true,
-             "type": "number"
+             "type": "string"
            }
          ],
         "responses": {
           "200": {
-            "description": "A list of products"
+            "description": "The message saved"
           },
           "400": {
-            "description": "Input parameter errors or product ID not found"
+            "description": "Input parameter errors"
           },
           "500": {
             "description": "Internal Server Error"
