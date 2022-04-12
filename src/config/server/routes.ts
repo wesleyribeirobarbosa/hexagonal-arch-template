@@ -1,7 +1,7 @@
 import { Express } from 'express';
 
-import userRoutes from '../../routes/user.routes';
+import helloWorldRoutes from '../../routes/hello.world.routes';
 
 export default (server: Express): void => {
-  server.use('/', userRoutes);
+  server.use('/api', helloWorldRoutes);
 };

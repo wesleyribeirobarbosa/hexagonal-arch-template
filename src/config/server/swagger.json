@@ -2,20 +2,38 @@
   "swagger": "2.0",
   "info": {
     "version": "1.0.0",
-    "title": "REST API",
+    "title": "RUPTURE API",
     "description": ""
   },
   "host": "localhost:3000",
-  "basePath": "/",
+  "basePath": "/api",
   "schemes": [
     "http"
   ],
   "paths": {
-    "/user": {
-      "post": {
-        "description": "",
-        "parameters": [],
-        "responses": {}
+    "/rupture/shopper/suggestion": {
+      "get": {
+        "description": "Search for product suggestions similar to a missing product",
+        "parameters": [ 
+           {
+             "name": "plu",
+             "in": "query",
+             "description": "Product ID",
+             "required": true,
+             "type": "number"
+           }
+         ],
+        "responses": {
+          "200": {
+            "description": "A list of products"
+          },
+          "400": {
+            "description": "Input parameter errors or product ID not found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
       }
     }
   }

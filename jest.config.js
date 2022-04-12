@@ -2,4 +2,10 @@
 module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'node',
+  collectCoverageFrom: [
+   './src/application/domain/**/*.ts',
+   './src/application/services/**/*.ts',
+   './src/shared/error/**/*.ts',
+   './src/shared/either.ts',
+  ]
 };
