@@ -1,6 +1,6 @@
 # Hexagonal-Arch-Template
 
-This repository is a template for building a microservice using Node.Js (**Typescript**) following the recommendations proposed by the **hexagonal** architecture.
+This repository is a template for building a microservice using Node.Js (**Typescript**) following the recommendations proposed by the **hexagonal Architecture** (Alistair Cockburn).
 
 The template consists of a **REST API** for inserting a Hello World message into **MongoDB**.
 
