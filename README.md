@@ -1,4 +1,4 @@
-# James.Backend.Microservice.Node
+# Hexagonal Architecture Template
 
 This repository is a template for building a microservice using Node.Js (**Typescript**) following the recommendations proposed by the **hexagonal** architecture.
 
