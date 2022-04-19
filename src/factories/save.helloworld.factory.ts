@@ -4,11 +4,8 @@ import SaveHelloWorldController from '../adapters/controllers/save.helloworld.co
 import SaveHelloWorldService from '../application/services/save.helloworld.service';
 
 const MakeGetSimilarsController = (): SaveHelloWorldController => {
-  const saveHelloWorldService = container.resolve(SaveHelloWorldService);
-  const saveHelloWorldController = new SaveHelloWorldController(
-    saveHelloWorldService,
-  );
-  return saveHelloWorldController;
+  container.resolve(SaveHelloWorldService);
+  return container.resolve(SaveHelloWorldController);
 };
 
 export default MakeGetSimilarsController;
