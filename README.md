@@ -1,6 +1,6 @@
-# Hexagonal-Arch-Template
+# James.Backend.Microservice.Node
 
-This repository is a template for building a microservice using Node.Js (**Typescript**) following the recommendations proposed by the **hexagonal Architecture** (Alistair Cockburn).
+This repository is a template for building a microservice using Node.Js (**Typescript**) following the recommendations proposed by the **hexagonal** architecture.
 
 The template consists of a **REST API** for inserting a Hello World message into **MongoDB**.
 
@@ -69,6 +69,12 @@ The domain contains the system entities and their individual behaviors. The enti
 
 =======================================================
 
+**Factories**:
+
+They are modules responsible for "fabricating" and injecting the dependencies present in the flow, leaving the controllers and services only with their desired responsibilities.
+
+=======================================================
+
 **Running**:
 
 To run the application locally, the MongoDB database must be running. If so, just run the command:
@@ -81,7 +87,7 @@ To run the application as a container, just run the command:
 
 The application API will be available at <a href="http://localhost:3001">localhost:3001</a>.
 
-Mongo Express web interface will be available at <a href="http://localhost:8081">localhost:8081</a>..
+Mongo Express web interface will be available at <a href="http://localhost:8081">localhost:8081</a>.
 
 Swagger API Docs will be available at <a href="http://localhost:3001/api-docs/">localhost:3001/api-docs/</a>.
 

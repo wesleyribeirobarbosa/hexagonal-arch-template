@@ -9,7 +9,7 @@
     "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",
     "lint": "eslint .",
     "swagger-autogen": "node ./src/config/server/swagger.js",
-    "test": "jest --detectOpenHandles --testEnvironment=node --runInBand --coverage --collectCoverageFrom=./src/application/** --forceExit"
+    "test": "jest --detectOpenHandles --testEnvironment=node --runInBand --coverage --forceExit"
   },
   "dependencies": {
     "dotenv": "^16.0.0",

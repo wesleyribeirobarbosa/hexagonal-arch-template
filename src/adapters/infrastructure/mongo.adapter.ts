@@ -2,7 +2,7 @@ import { connect } from 'mongoose';
 
 import 'dotenv/config';
 import { SaveHelloWorldResponse } from '../../shared/types/mongo.responses';
-import { left, right } from '../../shared/either';
+import { error, success } from '../../shared/either';
 import DatabaseError from '../../shared/error/database.error';
 import ErrorTypes from '../../shared/error/error.types';
 import HelloWorldRepository from '../../application/ports/resources/helloworld.repository';
@@ -24,9 +24,9 @@ export default class MongoAdapter implements HelloWorldRepository {
     try {
       const helloWorldModel = new HelloWorldModel({ message });
       const response = await helloWorldModel.save();
-      return right(response.message);
+      return success(response.message);
     } catch (e) {
-      return left(new DatabaseError(ErrorTypes.DATABASE_ERROR, e));
+      return error(new DatabaseError(ErrorTypes.DATABASE_ERROR, e));
     }
   }
 }

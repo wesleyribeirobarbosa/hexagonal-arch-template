@@ -1,38 +1,38 @@
 /* eslint-disable no-use-before-define */
-export class Right<L, A> {
+export class Success<L, A> {
   readonly value: A;
 
   constructor(value: A) {
     this.value = value;
   }
 
-  isLeft(): this is Left<L, A> {
+  isError(): this is Error<L, A> {
     return false;
   }
 
-  isRight(): this is Right<L, A> {
+  isSuccess(): this is Success<L, A> {
     return true;
   }
 }
 
-export class Left<L, A> {
+export class Error<L, A> {
   readonly value: L;
 
   constructor(value: L) {
     this.value = value;
   }
 
-  isLeft(): this is Left<L, A> {
+  isError(): this is Error<L, A> {
     return true;
   }
 
-  isRight(): this is Right<L, A> {
+  isSuccess(): this is Success<L, A> {
     return false;
   }
 }
 
-export const left = <L, A>(l: L): Either<L, A> => new Left<L, A>(l);
+export const error = <L, A>(l: L): Either<L, A> => new Error<L, A>(l);
 
-export const right = <L, A>(a: A): Either<L, A> => new Right<L, A>(a);
+export const success = <L, A>(a: A): Either<L, A> => new Success<L, A>(a);
 
-export type Either<L, A> = Left<L, A> | Right<L, A>;
+export type Either<L, A> = Error<L, A> | Success<L, A>;

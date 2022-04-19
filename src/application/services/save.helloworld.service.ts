@@ -1,5 +1,5 @@
 import { inject, injectable } from 'tsyringe';
-import { left, right } from '../../shared/either';
+import { error, success } from '../../shared/either';
 import SaveHelloWorldUseCase from '../ports/usecases/save.helloworld.usecase';
 import HelloWorldRepository from '../ports/resources/helloworld.repository';
 import { SaveHelloWorldResponse } from '../../shared/types/mongo.responses';
@@ -14,13 +14,13 @@ export default class SaveHelloWorldService implements SaveHelloWorldUseCase {
 
   async handle(message: string): Promise<SaveHelloWorldResponse> {
     const messageValidation = Message.create(message);
-    if (messageValidation.isLeft()) return left(messageValidation.value);
+    if (messageValidation.isError()) return error(messageValidation.value);
 
     const saveHelloWorldResponse: SaveHelloWorldResponse =
       await this.helloWorldRepository.saveMessage(message);
-    if (saveHelloWorldResponse.isLeft())
-      return left(saveHelloWorldResponse.value);
+    if (saveHelloWorldResponse.isError())
+      return error(saveHelloWorldResponse.value);
 
-    return right(saveHelloWorldResponse.value);
+    return success(saveHelloWorldResponse.value);
   }
 }

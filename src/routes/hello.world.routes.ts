@@ -1,16 +1,9 @@
 import { Router } from 'express';
-import { container } from 'tsyringe';
-
-import SaveHelloWorldController from '../adapters/controllers/save.helloworld.controller';
-import SaveHelloWorldService from '../application/services/save.helloworld.service';
+import HttpAdapter from '../adapters/infrastructure/http.adapter';
+import MakeGetSimilarsController from '../factories/save.helloworld.factory';
 
 const helloWorldRoutes = Router();
 
-helloWorldRoutes.post('/helloworld', (request, response) =>
-  new SaveHelloWorldController(container.resolve(SaveHelloWorldService)).handle(
-    request,
-    response,
-  ),
-);
+helloWorldRoutes.post('/helloworld', HttpAdapter(MakeGetSimilarsController()));
 
 export default helloWorldRoutes;

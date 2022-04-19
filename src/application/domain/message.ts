@@ -1,5 +1,5 @@
 import ApplicationError from '../../shared/error/application.error';
-import { left, right } from '../../shared/either';
+import { error, success } from '../../shared/either';
 import ErrorTypes from '../../shared/error/error.types';
 import { MessageValidationResponse } from '../../shared/types/service.responses';
 
@@ -12,9 +12,9 @@ export default class Message {
 
   static create(message: string): MessageValidationResponse {
     if (message === undefined || message == null)
-      return left(
+      return error(
         new ApplicationError(ErrorTypes.VALIDATION_ERROR, 'Invalid message!'),
       );
-    return right(new Message(message));
+    return success(new Message(message));
   }
 }
