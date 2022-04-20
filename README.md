@@ -8,7 +8,7 @@ The technologies used in the construction of the template were:
 
 - **Express**: FMK used to build the Web server.
 - **Mongoose**: ODM for abstraction of interaction with MongoDB.
-- **Tsyringe**: Lightweight container for dependency injection (Implementation of driven adapters).
+- **Tsyringe**: Lightweight container for dependency injection.
 - **Jest**: Test FMK.
 - **Swagger**: API documentation tool.
 - **ESLint**: Code analysis tool.
