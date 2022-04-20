@@ -8,4 +8,5 @@ export type SaveHelloWorldResponse = Either<
   ApplicationError,
   string
 >;
+
 export type SaveHelloWorldRepositoryResponse = Either<ApplicationError, string>;
