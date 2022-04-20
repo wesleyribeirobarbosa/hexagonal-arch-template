@@ -1,3 +1,4 @@
+import { inject, injectable } from 'tsyringe';
 import SaveHelloWorldUseCase from '../../application/ports/usecases/save.helloworld.usecase';
 import ErrorHandler from '../../shared/error/error.handler';
 import ErrorHandlerResponse from '../../shared/error/error.handler.response';
@@ -6,12 +7,12 @@ import { HTTPRequest, HTTPResponse } from '../../shared/types/http.types';
 import { SaveHelloWorldResponse } from '../../shared/types/response.types';
 import Controller from './controller';
 
+@injectable()
 export default class SaveHelloWorldController implements Controller {
-  private saveHelloWorld: SaveHelloWorldUseCase;
-
-  constructor(saveHelloWorld: SaveHelloWorldUseCase) {
-    this.saveHelloWorld = saveHelloWorld;
-  }
+  constructor(
+    @inject('SaveHelloWorldUseCase')
+    private saveHelloWorld: SaveHelloWorldUseCase,
+  ) {}
 
   async handle(request: HTTPRequest): Promise<HTTPResponse> {
     const { message } = request.body;
