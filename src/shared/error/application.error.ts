@@ -1,7 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import IError from './error';
-
-export default class ApplicationError implements IError {
+export default class ApplicationError {
   type: string;
   details: any;
 

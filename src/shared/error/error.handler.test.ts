@@ -4,7 +4,6 @@ import ErrorHandler from './error.handler';
 import ErrorTypes from './error.types';
 import HTTPStatusCodes from '../http.status.codes';
 import HTTPClientError from './http.client.error';
-import DatabaseError from './database.error';
 
 describe('Testing error handler module', () => {
   let errorValidation: ErrorHandlerResponse;
@@ -51,7 +50,7 @@ describe('Testing error handler module', () => {
   });
 
   test('Testing Database Error', () => {
-    const error = new DatabaseError(ErrorTypes.DATABASE_ERROR, '');
+    const error = new ApplicationError(ErrorTypes.DATABASE_ERROR, '');
     const errorHandlerResponse: ErrorHandlerResponse =
       ErrorHandler.handle(error);
 

@@ -1,13 +1,10 @@
-import IError from './error';
+import ApplicationError from './application.error';
 
-export default class HTTPClientError implements IError {
-  type: string;
+export default class HTTPClientError extends ApplicationError {
   status: number;
-  details: string;
 
   constructor(type: string, status: number, details: string) {
-    this.type = type;
+    super(type, details);
     this.status = status;
-    this.details = details;
   }
 }

@@ -3,11 +3,11 @@ import { container } from 'tsyringe';
 import HelloWorldRepository from '../../application/ports/resources/helloworld.repository';
 import SaveHelloWorldService from '../../application/services/save.helloworld.service';
 import { error, success } from '../../shared/either';
-import DatabaseError from '../../shared/error/database.error';
+import ApplicationError from '../../shared/error/application.error';
 import ErrorTypes from '../../shared/error/error.types';
 
 import { HTTPRequest } from '../../shared/types/http.types';
-import { SaveHelloWorldResponse } from '../../shared/types/mongo.responses';
+import { SaveHelloWorldResponse } from '../../shared/types/response.types';
 import SaveHelloWorldController from './save.helloworld.controller';
 
 describe('', () => {
@@ -27,7 +27,7 @@ describe('', () => {
     },
     error: class Adapter implements HelloWorldRepository {
       async saveMessage(): Promise<SaveHelloWorldResponse> {
-        return error(new DatabaseError(ErrorTypes.DATABASE_ERROR, ''));
+        return error(new ApplicationError(ErrorTypes.DATABASE_ERROR, ''));
       }
     },
   };

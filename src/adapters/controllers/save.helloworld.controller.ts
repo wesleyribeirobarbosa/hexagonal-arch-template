@@ -4,7 +4,7 @@ import ErrorHandler from '../../shared/error/error.handler';
 import ErrorHandlerResponse from '../../shared/error/error.handler.response';
 import HTTPStatusCodes from '../../shared/http.status.codes';
 import { HTTPRequest, HTTPResponse } from '../../shared/types/http.types';
-import { SaveHelloWorldResponse } from '../../shared/types/service.responses';
+import { SaveHelloWorldResponse } from '../../shared/types/response.types';
 import Controller from './controller';
 
 @injectable()

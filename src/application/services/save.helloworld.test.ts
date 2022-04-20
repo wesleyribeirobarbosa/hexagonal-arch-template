@@ -1,7 +1,7 @@
 import 'reflect-metadata';
 import { container } from 'tsyringe';
 import { error, success } from '../../shared/either';
-import { SaveHelloWorldResponse } from '../../shared/types/mongo.responses';
+import { SaveHelloWorldResponse } from '../../shared/types/response.types';
 import HelloWorldRepository from '../ports/resources/helloworld.repository';
 import SaveHelloWorldService from './save.helloworld.service';
 

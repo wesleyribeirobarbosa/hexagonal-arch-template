@@ -1,12 +1,12 @@
 import { connect } from 'mongoose';
 
 import 'dotenv/config';
-import { SaveHelloWorldResponse } from '../../shared/types/mongo.responses';
+import { SaveHelloWorldRepositoryResponse } from '../../shared/types/response.types';
 import { error, success } from '../../shared/either';
-import DatabaseError from '../../shared/error/database.error';
 import ErrorTypes from '../../shared/error/error.types';
 import HelloWorldRepository from '../../application/ports/resources/helloworld.repository';
 import HelloWorldModel from '../../config/database/models/hello.world';
+import ApplicationError from '../../shared/error/application.error';
 
 export default class MongoAdapter implements HelloWorldRepository {
   async connect(): Promise<void> {
@@ -20,13 +20,13 @@ export default class MongoAdapter implements HelloWorldRepository {
     }
   }
 
-  async saveMessage(message: string): Promise<SaveHelloWorldResponse> {
+  async saveMessage(message: string): Promise<SaveHelloWorldRepositoryResponse> {
     try {
       const helloWorldModel = new HelloWorldModel({ message });
       const response = await helloWorldModel.save();
       return success(response.message);
     } catch (e) {
-      return error(new DatabaseError(ErrorTypes.DATABASE_ERROR, e));
+      return error(new ApplicationError(ErrorTypes.DATABASE_ERROR, e.toString()));
     }
   }
 }
