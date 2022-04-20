@@ -7,7 +7,7 @@ import DatabaseError from '../../shared/error/database.error';
 import ErrorTypes from '../../shared/error/error.types';
 
 import { HTTPRequest } from '../../shared/types/http.types';
-import { SaveHelloWorldResponse } from '../../shared/types/mongo.responses';
+import { SaveHelloWorldResponse } from '../../shared/types/response.types';
 import SaveHelloWorldController from './save.helloworld.controller';
 
 describe('', () => {

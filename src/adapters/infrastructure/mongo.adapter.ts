@@ -1,7 +1,7 @@
 import { connect } from 'mongoose';
 
 import 'dotenv/config';
-import { SaveHelloWorldResponse } from '../../shared/types/mongo.responses';
+import { SaveHelloWorldResponse } from '../../shared/types/response.types';
 import { error, success } from '../../shared/either';
 import DatabaseError from '../../shared/error/database.error';
 import ErrorTypes from '../../shared/error/error.types';

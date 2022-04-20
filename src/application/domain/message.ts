@@ -1,7 +1,7 @@
 import ApplicationError from '../../shared/error/application.error';
 import { error, success } from '../../shared/either';
 import ErrorTypes from '../../shared/error/error.types';
-import { MessageValidationResponse } from '../../shared/types/service.responses';
+import { MessageValidationResponse } from '../../shared/types/response.types';
 
 export default class Message {
   private message: string;

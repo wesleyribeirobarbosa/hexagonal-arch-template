@@ -2,7 +2,7 @@ import { inject, injectable } from 'tsyringe';
 import { error, success } from '../../shared/either';
 import SaveHelloWorldUseCase from '../ports/usecases/save.helloworld.usecase';
 import HelloWorldRepository from '../ports/resources/helloworld.repository';
-import { SaveHelloWorldResponse } from '../../shared/types/mongo.responses';
+import { SaveHelloWorldResponse } from '../../shared/types/response.types';
 import Message from '../domain/message';
 
 @injectable()
